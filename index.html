@@ -1,5 +1,3 @@
-# meny-er-bra
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -18,17 +16,17 @@ var links = [
 var one, two;
 window.onload=function() {
   one = document.getElementById('frameone');
-}  
+}
 
 function onenav(idx) {
     one.src=links[idx];
-}  
+}
 
 var acc = document.getElementsByClassName("subli");
 var i;
-    
+
 for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function() { 
+    acc[i].onclick = function() {
         this.classList.toggle("active");
     }
 }
@@ -38,69 +36,96 @@ for (i = 0; i < acc.length; i++) {
 
 <body>
 <div class="wrapper" id="mainwrapper">
-    
+
 <nav id="menunav">
     <figure><a href="index.html">
-        <img src="img/Logo.png" id="logo" >
+        <img src="img/Logo.png" id="logo">
         </a>
     </figure>
-    <ul>
-        <?php include 'menu.php'; ?>
-        <button class="menuli"><img src="img/pilopp.png"> Rapportkategori 1</button>
-        <div class="panel">
-            <ul>
+    <ul id="menuLi">
+        <button class="newmenuli" onclick="newCat()">Ny Kategori</button>
+        <button class="menuli" onclick="changeActive()"><img id="CatImg" src="img/pilopp.png"> Rapportkategori 1</button>
+        <div class="panel" id="p1">
+            <ul id="p1l">
+                <button class="subli" onclick="newRep()">Ny Rapport</button>
                 <button class="subli" onclick="onenav(0)">Status</button>
-                <button class="subli" onclick="onenav(1)" id="lastsub"> Avkastning</button>
+                <button class="subli" onclick="onenav(1)"> Avkastning</button>
             </ul>
         </div>
-        
+
         <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 2</button>
         <div class="panel">
             
         </div>
-        
+
         <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 3 </button>
         <div class="panel">
             
         </div>
-        
-        <button class="menuli"> <img src="img/pilbort.png"> Rapportkategori 4</button>
+
+        <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 4</button>
         <div class="panel">
             
         </div>
-        
+
         <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 5</button>
         <div class="panel">
-            
         </div>
-        
+
         <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 6</button>
         <div class="panel">
-            
+
         </div>
-        
-        <button class="menuli" id="lastitem"> <img src="img/pilopp.png"> Rapportkategori 7</button>
+
+        <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 7</button>
         <div class="panel">
-            
+
         </div>
-        
+
     </ul>
 </nav>
-    
+
 <div class="rapportvindu">
     <iframe id="frameone" width="1250" height="740" src="about:blank" frameborder="0" allowFullScreen="true"></iframe>
 </div>
-    
+
 
 <script>
 var acc = document.getElementsByClassName("menuli");
+var list = document.getElementById("menuLi");
+var img_array= ['img/pilopp.png','img/pilbort.png'];
 var i;
+var a = 0;
+    
+function newRep() {
+  var button = document.createElement("button");
+  var textnode = document.createTextNode("textph");
+  button.appendChild(textnode);
+    button.className = "subli";
+  document.getElementById("p1l").append(button);
+}
 
-for (i = 0; i < acc.length; i++) {
+function newCat() {
+  var node = document.createElement("div");
+  var button = document.createElement("button");
+  var textnode = document.createTextNode("textph");
+  button.appendChild(textnode);
+    button.className = "menuli";
+  node.appendChild(button);
+  list.appendChild(node);
+}
+
+function changeActive() {
+    for (i = 0; i < acc.length; i++) {
     acc[i].onclick = function(){
         /* Toggle between adding and removing the "active" class,
         to highlight the button that controls the panel */
         this.classList.toggle("active");
+        a++;
+        document.getElementById("CatImg").src=img_array[a];
+        if(a==img_array.length-1) {
+        a=-1;
+        }
 
         /* Toggle between hiding and showing the active panel */
         var panel = this.nextElementSibling;
@@ -110,12 +135,20 @@ for (i = 0; i < acc.length; i++) {
             panel.style.display = "block";
         }
     }
-}   
-</script>
-</div>
-    
+  }
+}
+
+   
+
+
+
 
     
+</script>
+</div>
+
+
+
 </body>
-    
+
 </html>
