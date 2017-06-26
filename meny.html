@@ -1,0 +1,121 @@
+# meny-er-bra
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Escali Webklient </title>
+<link href="style.css" rel="stylesheet">
+
+<script>
+var links = [
+    'https://app.powerbi.com/view?r=eyJrIjoiNGZhMDBmYjQtNGM5ZC00YmFhLTk1MTQtNDU2MGJjNzNhZDU1IiwidCI6IjIwMGE3ODVlLTA3NTQtNDdjOS1hYjY1LTJhOGI1ZTcxYTE2YyIsImMiOjh9',
+    'https://app.powerbi.com/view?r=eyJrIjoiNDRkNzc4MDUtODU1My00MTc1LWI2ZGItOTY4MDQwOGM3ZTQ3IiwidCI6IjIwMGE3ODVlLTA3NTQtNDdjOS1hYjY1LTJhOGI1ZTcxYTE2YyIsImMiOjh9'
+];
+var one, two;
+window.onload=function() {
+  one = document.getElementById('frameone');
+}  
+
+function onenav(idx) {
+    one.src=links[idx];
+}  
+
+var acc = document.getElementsByClassName("subli");
+var i;
+    
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function() { 
+        this.classList.toggle("active");
+    }
+}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+</head>
+
+<body>
+<div class="wrapper" id="mainwrapper">
+    
+<nav id="menunav">
+    <figure><a href="index.html">
+        <img src="img/Logo.png" id="logo" >
+        </a>
+    </figure>
+    <ul>
+        <?php include 'menu.php'; ?>
+        <button class="menuli"><img src="img/pilopp.png"> Rapportkategori 1</button>
+        <div class="panel">
+            <ul>
+                <button class="subli" onclick="onenav(0)">Status</button>
+                <button class="subli" onclick="onenav(1)" id="lastsub"> Avkastning</button>
+            </ul>
+        </div>
+        
+        <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 2</button>
+        <div class="panel">
+            
+        </div>
+        
+        <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 3 </button>
+        <div class="panel">
+            
+        </div>
+        
+        <button class="menuli"> <img src="img/pilbort.png"> Rapportkategori 4</button>
+        <div class="panel">
+            
+        </div>
+        
+        <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 5</button>
+        <div class="panel">
+            
+        </div>
+        
+        <button class="menuli"> <img src="img/pilopp.png"> Rapportkategori 6</button>
+        <div class="panel">
+            
+        </div>
+        
+        <button class="menuli" id="lastitem"> <img src="img/pilopp.png"> Rapportkategori 7</button>
+        <div class="panel">
+            
+        </div>
+        
+    </ul>
+</nav>
+    
+<div class="rapportvindu">
+    <iframe id="frameone" width="1250" height="740" src="about:blank" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+    
+
+<script>
+var acc = document.getElementsByClassName("menuli");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}   
+</script>
+</div>
+    
+
+    
+</body>
+    
+</html>
