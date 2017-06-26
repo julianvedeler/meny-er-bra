@@ -1,0 +1,94 @@
+/* Avgrenser hvor stort innholdet maksimalt skal være og dets marginer*/
+.wrapper {
+    text-align: center;
+}
+header {
+    width: 100%; 
+}
+footer {
+    text-align: center;
+}
+
+/* Styling av menyen*/
+
+nav {
+    text-align:left;
+    position: fixed;
+    display: block;
+    width: 260px;
+    height: 100%;
+    top: 0;
+    left: 0; 
+    background-color: white;
+    z-index: 1;
+    text-decoration: none;
+}
+
+/* Styling av linkene i menyen*/
+button.menuli {
+    display: block;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+    font-size: 0.8em;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: solid #006db8;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 220px;
+    cursor: pointer;
+}
+
+.subli {
+    display: block;
+    text-align: left;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+    font-size: 0.8em;
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: none;
+    width: 180px;
+    cursor: pointer;
+}
+
+#lastsub {
+    border-bottom: solid #006db8;
+}
+button.subli.active, button.subli:hover {
+    background-color: #00b440;
+}
+
+.menuli img {
+    width: 10px;
+    margin-right: 10px;
+}
+
+#lastitem {
+    border-bottom: none;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding-left: 0px;
+    margin-left: 0px;
+    background-color: #026ebf;
+    display: none;
+}
+
+/* Styling av logo */
+#logo {
+    width: 200px;
+}
+
+.rapportvindu {
+    float: right;
+    top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
