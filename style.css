@@ -41,6 +41,22 @@ button.menuli {
     width: 220px;
     cursor: pointer;
 }
+button.newmenuli {
+    display: block;
+    font-family: "Roboto", sans-serif;
+    background-color: white;
+    font-size: 0.8em;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: solid #006db8;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 220px;
+    cursor: pointer;
+}
 
 .subli {
     display: block;
